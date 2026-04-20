@@ -8,7 +8,7 @@ import typingGameImg from "./assets/typing-game.png";
 function App() {
   return (
     <div className="app">
-      <h2>My Projects</h2>
+      <h1>My Projects</h1>
       <main className="project-list">
         <Project
           title="Typing Game"
