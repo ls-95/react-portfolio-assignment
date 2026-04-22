@@ -1,0 +1,35 @@
+nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #2563eb;
+}
+
+ul {
+  display: flex;
+  gap: 4em;
+}
+
+li {
+  list-style: none;
+  padding: 1.5em 3em;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  color: white;
+}
+
+li:hover {
+  background-color: #4278ec;
+}
+
+li:active {
+  background-color: #1d4ed8;
+}
+
+a:active {
+  position: relative;
+  top: 2px;
+}

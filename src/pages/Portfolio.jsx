@@ -25,7 +25,6 @@ function Portfolio() {
       </button>
       <main className={!isVisible ? "hidden" : "project-list"}>
         <h1>My Projects</h1>
-
         <Project
           title="Typing Game"
           tech="HTML, CSS, JS"
