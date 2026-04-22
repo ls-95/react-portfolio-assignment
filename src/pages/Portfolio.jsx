@@ -7,23 +7,17 @@ import verdeInkImg from "../assets/verde-ink.png";
 import typingGameImg from "../assets/typing-game.png";
 
 function Portfolio() {
-  const [buttonText, setButtonText] = useState("Show Projects");
   const [isVisible, setIsVisible] = useState(false);
-  const handleToggle = () => {
-    if (buttonText === "Show Projects") {
-      setIsVisible(true);
-      setButtonText("Hide Projects");
-    } else {
-      setIsVisible(false);
-      setButtonText("Show Projects");
-    }
-  };
+
   return (
     <div className="portfolio">
-      <button onClick={handleToggle} className="toggle-visiblity-btn">
-        {buttonText}
+      <button
+        onClick={() => setIsVisible(!isVisible)}
+        className="toggle-visiblity-btn"
+      >
+        {isVisible ? "Hide Projects" : "Show Projects"}
       </button>
-      <main className={!isVisible ? "hidden" : "project-list"}>
+      <main className={isVisible ? "project-list" : "hidden"}>
         <h1>My Projects</h1>
         <Project
           title="Typing Game"
