@@ -1,7 +1,6 @@
 .portfolio {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   min-height: 100vh;
   gap: 2em;
@@ -14,6 +13,35 @@
   gap: 2em;
 }
 
+.hidden {
+  display: none;
+}
+
 h1 {
   font-size: 2.5em;
+}
+
+.toggle-visiblity-btn {
+  background-color: #2563eb;
+  font-size: 1em;
+  color: #fff;
+  border: none;
+  text-decoration: none;
+  margin: 0.5em 0;
+  padding: 0.8em 1.6em;
+  border-radius: 0.5em;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: "Nunito", sans-serif;
+  transition: all 0.2s ease-in;
+}
+
+.toggle-visiblity-btn:hover {
+  background-color: #4278ec;
+}
+
+.toggle-visiblity-btn:active {
+  background-color: #1d4ed8;
+  position: relative;
+  top: 2px;
 }

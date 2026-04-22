@@ -1,4 +1,5 @@
 import "./Portfolio.css";
+import { useState, useTransition } from "react";
 import Project from "../components/Project.jsx";
 import travelImg from "../assets/travel.png";
 import bankAccountImg from "../assets/bank-account.png";
@@ -6,10 +7,24 @@ import verdeInkImg from "../assets/verde-ink.png";
 import typingGameImg from "../assets/typing-game.png";
 
 function Portfolio() {
+  const [buttonText, setButtonText] = useState("Show Projects");
+  const [isVisible, setIsVisible] = useState(false);
+  const handleToggle = () => {
+    if (buttonText === "Show Projects") {
+      setIsVisible(true);
+      setButtonText("Hide Projects");
+    } else {
+      setIsVisible(false);
+      setButtonText("Show Projects");
+    }
+  };
   return (
     <div className="portfolio">
+      <button onClick={handleToggle} className="toggle-visiblity-btn">
+        {buttonText}
+      </button>
       <h1>My Projects</h1>
-      <main className="project-list">
+      <main className={!isVisible ? "hidden" : "project-list"}>
         <Project
           title="Typing Game"
           tech="HTML, CSS, JS"
