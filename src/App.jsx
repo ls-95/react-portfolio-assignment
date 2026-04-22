@@ -1,4 +1,5 @@
 import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Project from "./components/Project";
 import travelImg from "./assets/travel.png";
 import bankAccountImg from "./assets/bank-account.png";
