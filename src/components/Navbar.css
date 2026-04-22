@@ -33,3 +33,41 @@ a:active {
   position: relative;
   top: 2px;
 }
+
+.hamburger-menu {
+  display: none;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 1em;
+  color: white;
+  font-size: 1.3rem;
+}
+
+@media (max-width: 640px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .hamburger-menu {
+    display: block;
+  }
+
+  ul {
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+  }
+
+  ul.open {
+    display: flex;
+  }
+
+  li {
+    padding: 1em 1.5em;
+    border-top: 1px solid #4278ec;
+    text-align: right;
+  }
+}

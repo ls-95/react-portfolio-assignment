@@ -1,5 +1,5 @@
 import "./Portfolio.css";
-import { useState, useTransition } from "react";
+import { useState } from "react";
 import Project from "../components/Project.jsx";
 import travelImg from "../assets/travel.png";
 import bankAccountImg from "../assets/bank-account.png";
