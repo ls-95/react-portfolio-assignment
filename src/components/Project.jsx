@@ -14,7 +14,6 @@ function Project() {
     } else {
       setOpenIndex(index);
     }
-    console.log(index);
   };
 
   let projects = [
