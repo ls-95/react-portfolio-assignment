@@ -7,8 +7,15 @@ import verdeInkImg from "../assets/verde-ink.png";
 import typingGameImg from "../assets/typing-game.png";
 
 function Project() {
-  const [isOpen, setIsOpen] = useState(false);
-  const handlePopup = () => {};
+  const [openIndex, setOpenIndex] = useState(null);
+  const handlePopup = (index) => {
+    if (openIndex === index) {
+      setOpenIndex(null);
+    } else {
+      setOpenIndex(index);
+    }
+    console.log(index);
+  };
 
   let projects = [
     {
@@ -67,21 +74,25 @@ function Project() {
         <div key={index} className="project-card">
           <div className="project-header">
             <h2>{item.title}</h2>
-            <button>See More</button>
+            <button onClick={() => handlePopup(index)}>
+              {openIndex === index ? "See Less" : "See More"}
+            </button>
           </div>
           <hr />
           <p>{item.summary}</p>
           <hr />
           <div>
-            <Popup
-              tech={item.tech}
-              learned={item.learned}
-              challenges={item.challenges}
-              role={item.role}
-              image={item.image}
-              title={item.title}
-              repo={item.repo}
-            />
+            {openIndex === index && (
+              <Popup
+                tech={item.tech}
+                learned={item.learned}
+                challenges={item.challenges}
+                role={item.role}
+                image={item.image}
+                title={item.title}
+                repo={item.repo}
+              />
+            )}
           </div>
         </div>
       ))}
