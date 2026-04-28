@@ -12,6 +12,12 @@
   border: 1px solid #d1d5db;
 }
 
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .project-container {
   display: flex;
   justify-content: space-between;
@@ -63,7 +69,8 @@ p,
   align-items: center;
 }
 
-.btn-container > a {
+.btn-container > a,
+.project-header > button {
   background-color: #2563eb;
   color: #fff;
   border: none;
@@ -72,15 +79,19 @@ p,
   padding: 0.8em 1.6em;
   border-radius: 0.5em;
   font-weight: bold;
+  font-family: "Nunito", sans-serif;
+  font-size: 1em;
   cursor: pointer;
   transition: all 0.2s ease-in;
 }
 
-.btn-container > a:hover {
+.btn-container > a:hover,
+.project-header > button:hover {
   background-color: #4278ec;
 }
 
-.btn-container > a:active {
+.btn-container > a:active,
+.project-header > button:active {
   background-color: #1d4ed8;
   position: relative;
   top: 2px;

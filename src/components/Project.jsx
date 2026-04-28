@@ -1,40 +1,91 @@
+import { useState } from "react";
+import Popup from "./Popup";
 import "./Project.css";
+import travelImg from "../assets/travel.png";
+import bankAccountImg from "../assets/bank-account.png";
+import verdeInkImg from "../assets/verde-ink.png";
+import typingGameImg from "../assets/typing-game.png";
 
-function Project(props) {
+function Project() {
+  const [isOpen, setIsOpen] = useState(false);
+  const handlePopup = () => {};
+
+  let projects = [
+    {
+      title: "Typing Game",
+      tech: "HTML, CSS, JS",
+      summary:
+        "An interactive typing game with multiple difficulty levels to challenge and improve your typing speed and accuracy.",
+      learned:
+        "How to connect different features together into a smooth user experience.",
+      challenges: "Getting the different difficulty levels.",
+      image: typingGameImg,
+      repo: "https://github.com/ls-95/typing-game-starter-master",
+    },
+    {
+      title: "Bank Account App",
+      tech: "HTML, CSS, JS",
+      summary:
+        "A simple banking app that allows users to deposit and withdraw money from their account.",
+      learned:
+        "How to use switch cases and functions to handle different user actions.",
+      challenges:
+        "Translating the logic from JavaScript into visible changes on the page using the DOM.",
+      image: bankAccountImg,
+      repo: "https://github.com/ls-95/javascript-assignments/tree/master/src/lesson-five",
+    },
+    {
+      title: "Verde Ink",
+      tech: "HTML, CSS, JS",
+      summary:
+        "A website for an eco-friendly ink brand, focused on clean design and sustainability.",
+      learned:
+        "How to work as part of a team and split work across a shared project.",
+      role: "Set up the repository and built the contact page.",
+      challenges:
+        "Learning to communicate with teammates and keep everything organised.",
+      image: verdeInkImg,
+      repo: "https://github.com/ls-95/verde-ink",
+    },
+    {
+      title: "Travel Website",
+      tech: "HTML, SASS, JS",
+      summary:
+        "A website for a travel company where users can explore destinations.",
+      learned:
+        "How to use SASS across a larger project including variables and reusable styles.",
+      challenges:
+        "Applying SASS across the whole project while working within a deadline.",
+      image: travelImg,
+      repo: "https://github.com/ls-95/assignment-test-skills",
+    },
+  ];
+
   return (
-    <div className="project-card">
-      <h2>{props.title}</h2>
-      <hr />
-      <p>{props.summary}</p>
-      <hr />
-      <div className="project-container">
-        <div className="project-information">
-          <p>
-            <span>Tech:</span> {props.tech}
-          </p>
-          <p>
-            <span>Learned:</span> {props.learned}
-          </p>
-          <p>
-            <span>Challenges:</span> {props.challenges}
-          </p>
-          {props.role && (
-            <p>
-              <span>Role:</span> {props.role}
-            </p>
-          )}
+    <>
+      {projects.map((item, index) => (
+        <div key={index} className="project-card">
+          <div className="project-header">
+            <h2>{item.title}</h2>
+            <button>See More</button>
+          </div>
+          <hr />
+          <p>{item.summary}</p>
+          <hr />
+          <div>
+            <Popup
+              tech={item.tech}
+              learned={item.learned}
+              challenges={item.challenges}
+              role={item.role}
+              image={item.image}
+              title={item.title}
+              repo={item.repo}
+            />
+          </div>
         </div>
-        <div className="img-container">
-          <img src={props.image} alt={props.title} />
-        </div>
-      </div>
-      <hr />
-      <div className="btn-container">
-        <a href={props.repo} target="_blank">
-          View Repo
-        </a>
-      </div>
-    </div>
+      ))}
+    </>
   );
 }
 
