@@ -1,5 +1,14 @@
+.search-bar {
+  padding: 1em 2em;
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  border: 2px solid #d1d5db;
+  border-radius: 0.5em;
+}
+
 .project-card {
-  max-width: 900px;
+  max-width: 800px;
   width: 100%;
   padding: 0.5em 2em 2em 2em;
   background-color: #fff;
@@ -45,7 +54,7 @@ img {
 }
 
 img:hover {
-  transform: scale(2.5);
+  transform: scale(2);
 }
 
 p {

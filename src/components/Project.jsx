@@ -72,8 +72,10 @@ function Project() {
   return (
     <>
       <input
+        className="search-bar"
         type="text"
         value={search}
+        placeholder="Search project..."
         onChange={(e) => setSearch(e.target.value)}
       />
       {projects
