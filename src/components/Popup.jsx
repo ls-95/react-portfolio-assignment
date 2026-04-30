@@ -6,7 +6,10 @@ function Popup({ tech, learned, challenges, role, image, title, repo }) {
       <div className="project-container">
         <div className="project-information">
           <p>
-            <span>Tech:</span> {tech}
+            <span>Tech:</span>{" "}
+            {tech.map((tech, index) => (
+              <span key={index}>{tech} </span>
+            ))}
           </p>
           <p>
             <span>Learned:</span> {learned}

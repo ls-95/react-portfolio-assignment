@@ -8,6 +8,8 @@ import typingGameImg from "../assets/typing-game.png";
 
 function Project() {
   const [openIndex, setOpenIndex] = useState(null);
+  const [search, setSearch] = useState("");
+
   const handlePopup = (index) => {
     if (openIndex === index) {
       setOpenIndex(null);
@@ -19,7 +21,7 @@ function Project() {
   let projects = [
     {
       title: "Typing Game",
-      tech: "HTML, CSS, JS",
+      tech: ["HTML,", "CSS,", "JS"],
       summary:
         "An interactive typing game with multiple difficulty levels to challenge and improve your typing speed and accuracy.",
       learned:
@@ -30,7 +32,7 @@ function Project() {
     },
     {
       title: "Bank Account App",
-      tech: "HTML, CSS, JS",
+      tech: ["HTML,", "CSS,", "JS"],
       summary:
         "A simple banking app that allows users to deposit and withdraw money from their account.",
       learned:
@@ -42,7 +44,7 @@ function Project() {
     },
     {
       title: "Verde Ink",
-      tech: "HTML, CSS, JS",
+      tech: ["HTML,", "CSS,", "JS"],
       summary:
         "A website for an eco-friendly ink brand, focused on clean design and sustainability.",
       learned:
@@ -55,7 +57,7 @@ function Project() {
     },
     {
       title: "Travel Website",
-      tech: "HTML, SASS, JS",
+      tech: ["HTML,", "SASS,", "JS"],
       summary:
         "A website for a travel company where users can explore destinations.",
       learned:
@@ -69,32 +71,45 @@ function Project() {
 
   return (
     <>
-      {projects.map((item, index) => (
-        <div key={index} className="project-card">
-          <div className="project-header">
-            <h2>{item.title}</h2>
-            <button onClick={() => handlePopup(index)}>
-              {openIndex === index ? "See Less" : "See More"}
-            </button>
+      <input
+        type="text"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
+      {projects
+        .filter(
+          (project) =>
+            project.title.toLowerCase().includes(search.toLowerCase()) ||
+            project.tech.some((technology) =>
+              technology.toLowerCase().includes(search.toLowerCase()),
+            ),
+        )
+        .map((item, index) => (
+          <div key={index} className="project-card">
+            <div className="project-header">
+              <h2>{item.title}</h2>
+              <button onClick={() => handlePopup(index)}>
+                {openIndex === index ? "See Less" : "See More"}
+              </button>
+            </div>
+            <hr />
+            <p>{item.summary}</p>
+            <hr />
+            <div>
+              {openIndex === index && (
+                <Popup
+                  tech={item.tech}
+                  learned={item.learned}
+                  challenges={item.challenges}
+                  role={item.role}
+                  image={item.image}
+                  title={item.title}
+                  repo={item.repo}
+                />
+              )}
+            </div>
           </div>
-          <hr />
-          <p>{item.summary}</p>
-          <hr />
-          <div>
-            {openIndex === index && (
-              <Popup
-                tech={item.tech}
-                learned={item.learned}
-                challenges={item.challenges}
-                role={item.role}
-                image={item.image}
-                title={item.title}
-                repo={item.repo}
-              />
-            )}
-          </div>
-        </div>
-      ))}
+        ))}
     </>
   );
 }
